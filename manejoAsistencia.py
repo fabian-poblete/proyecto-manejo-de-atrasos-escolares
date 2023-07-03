@@ -4,7 +4,6 @@ import datetime
 import tkinter as tk
 from tkinter import messagebox
 from PIL import Image, ImageTk
-# import ctypes
 
 
 # Obtener los nuevos valores de las variables de entorno
