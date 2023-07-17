@@ -1,3 +1,4 @@
+#Codigo listo y funcional que muestra los datos por pantalla en una interfaz gráfica. 
 import os
 import mysql.connector
 import datetime

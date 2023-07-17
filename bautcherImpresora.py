@@ -1,6 +1,4 @@
-#Este codigo genera una imagen que luego quiero imprimir. Está haciendo todo bien. Solo que quiero
-#modificar para que cuando se agregue un rut y este genere la imagen se borre el mismo en el input para
-#agregar otro rut de inmediato.
+#Este codigo tengo que probarlo con la impresora. De ahí ir revisando.
 
 import os
 import mysql.connector
@@ -8,6 +6,7 @@ import datetime
 from PIL import Image, ImageDraw, ImageFont
 import tkinter as tk
 from PIL import ImageTk
+from escpos.printer import Usb
 
 # Obtener los nuevos valores de las variables de entorno
 db_host = os.environ.get('DB_HOST')
@@ -75,6 +74,11 @@ try:
 
         # Guardar la imagen generada
         imagen.save("autorizacion.png")
+
+        # Imprimir la imagen en la impresora térmica
+        printer = Usb(0x04b8, 0x0e15)  # Reemplaza los valores de vid y pid según tu impresora
+        printer.image("autorizacion.png")
+        printer.cut()
 
     def obtener_datos_estudiante(rut):
         consulta = "SELECT rut, nombre_completo, curso FROM estudiantes WHERE rut = %s"
