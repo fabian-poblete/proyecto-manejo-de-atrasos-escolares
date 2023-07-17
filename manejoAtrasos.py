@@ -43,12 +43,13 @@ try:
 
         # Crear el mensaje con el formato deseado
         mensaje = f"Fundación Chaminade\nInstituto Linares\n\n"
-        mensaje += f"{nombre}\n\n"
-        mensaje += f"AUTORIZACIÓN\n\n"
+        mensaje += "AUTORIZACIÓN".center(50) + "\n\n"  # Centrar el mensaje "AUTORIZACIÓN"
+        mensaje += f"Autorizo a:{nombre}\n\n"
         mensaje += f"Curso: {curso}\n\n"
         mensaje += f"Ingresar a clase a las: {hora_actual}\n"
         mensaje += f"Retirarse de Clases a las: {hora_actual}\n\n"
         mensaje += f"Firma y Timbre\nLinares: {fecha_actual.day} de {numero_mes} de {fecha_actual.year}"
+
 
         # Mostrar el mensaje en la ventana personalizada
         etiqueta_mensaje = tk.Label(ventana_personalizada, text=mensaje)
